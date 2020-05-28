@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MySpringApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+        <h1>Message</h1>
+
+        <table th:if="${allMessages} != null">
+            <tr>
+                <th>id</th>
+                <th>Text</th>
+                <th>Tag</th>
+            </tr>
+            <tr th:each="message : ${allMessages}">
+                <td th:text="${message.id}"></td>
+                <td th:text="${message.text}"></td>
+                <td th:text="${message.tag}"></td>
+
+                <td><a th:href="@{/message/delete(id = ${message.id})}">
+                    <button>Удалить</button>
+                </a></td>
+            </tr>
+        </table>
+
+</body>
+</html>

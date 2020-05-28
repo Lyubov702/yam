@@ -1,0 +1,16 @@
+CREATE DATABASE yam;
+CREATE TABLE messages
+(
+    id SERIAL PRIMARY KEY,
+    text CHARACTER VARYING(30),
+    tag CHARACTER VARYING(30),
+    userid INTEGER REFERENCES users(id)
+);
+
+CREATE TABLE users
+(
+    id SERIAL PRIMARY KEY,
+    username CHARACTER VARYING(30),
+    password CHARACTER VARYING(30)
+);
+
